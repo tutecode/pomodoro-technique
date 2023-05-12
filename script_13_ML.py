@@ -83,8 +83,8 @@ def pomodoro_timer(pomodoros, work_duration, break_duration, phrase_list):
         end_time = time.time() + (work_duration * 60)  # Calculate the end time
 
         while time.time() < end_time:
-            # Wait for a random interval between 10 to 30 seconds before showing the next image
-            wait_time = random.randint(1, 10)
+            # Wait for a random interval between (x, y) seconds before showing the next image
+            wait_time = random.randint(240, 360) # 240, 360 sec
             time.sleep(wait_time)
 
             # Randomly show an image from the image list

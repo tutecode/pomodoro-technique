@@ -50,7 +50,7 @@ def show_image(image_path):
     label.pack()
 
     # Start the main event loop
-    window.after(5000, window.destroy)  # Close the window after 3 seconds
+    window.after(6000, window.destroy)  # Close the window after 3 seconds
     window.mainloop()
 
 
@@ -62,7 +62,8 @@ def pomodoro_timer(pomodoros, work_duration, break_duration, image_list):
 
         while time.time() < end_time:
             # Wait for a random interval between 10 to 30 seconds before showing the next image
-            wait_time = random.randint(240, 360)
+            wait_time = random.randint(10, 30)
+            # wait_time = random.randint(240, 360)
             time.sleep(wait_time)
 
             # Randomly show an image from the image list
@@ -91,9 +92,9 @@ def main():
     break_duration = int(input("Enter the break duration (in minutes): "))
 
     image_list = [
-        'C:/Users/Matías/Desktop/Pomodoro/frase_1.png',
-        "C:/Users/Matías/Desktop/Pomodoro/frase_2.png",
-        "C:/Users/Matías/Desktop/Pomodoro/frase_3.jpg"
+        'C:/Users/Matías/Desktop/pomodoro-technique/frase_1.png',
+        "C:/Users/Matías/Desktop/pomodoro-technique/frase_2.png",
+        'C:/Users/Matías/Desktop/pomodoro-technique/Gonza-matenme.jpg'
         # Add more image paths as needed
     ]
 
