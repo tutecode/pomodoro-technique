@@ -26,7 +26,47 @@ However, it's important to note that individual preferences and what works for o
 - CustomTkinter > https://github.com/TomSchimansky/CustomTkinter
 
 
+- How to Study MORE in LESS Time (Evidence Based Techniques) (Youtube) https://youtu.be/p3dYxwO9A3Y
 
-import tkinter as tk
+Key insights
 
-window = tk.Tk()
+💡 Contrary to popular belief, the amount of time you spend studying does not necessarily correlate with better outcomes.
+- Keep yourself busy (block Instagram, YouTube).
+- You will never know you can do 2 jobs at the same time unless you've already done it.
+- Distribute your time.
+2. Reward yourself:
+    - Vacation (10 days, travel with friends)
+3. Don't overwork yourself
+    - Take
+
+4. Set smart goals
+
+5. Find a workspace (out your house, library)
+6. Touch some grass
+7. Make notes effectively
+8. Take care of your health
+9. Hobby out of work is necessary
+🎥💻⚽ Having multiple hobbies can help with creative blocks and increase productivity, according to the speaker's personal experience.
+📚 Going to the library or a different workspace can increase productivity for students by reducing distractions and creating a dedicated work environment.
+🌳 Taking breaks and spending time in nature can increase productivity and help reset the mind.
+📝 Taking notes can help with retaining information and feeling more involved in the learning process, whether it's for programming or academic subjects.
+🎨 Having a hobby outside of work or study can make you more productive in your job or studies.
+
+Summary for https://youtu.be/p3dYxwO9A3Y by www.eightify.app
+
+HACER UNA UI QUE AL EMPEZAR LA POMODORO TECHNIQUE TE PREGUNTE CUAL ES TU OBJETIVO DEL DIA luego fijar el tiempoo que le voy a destinar, like 25/5
+
+At the end of the pomodoro technique ask if it finisded if not start again
+
+FINISH | BREAK | CONTINUE
+
+take a long break like go to gym or something else
+
+
+Crear una base de datos con tiempo invertido en proyecto
+
+Track your time:
+PROJECT     | TIME  | Break
+FADSFDSAFD  | 24    | 43
+
+
