@@ -18,6 +18,22 @@ def play_sound(file_path, duration):
     # Schedule a stop event after the specified duration
     threading.Timer(duration * 60, pygame.mixer.music.stop).start()
 
+def insert_csv(description, work_duration, break_duration):
+    # Check if the CSV file exists
+    file_exists = os.path.isfile("pomodoro_data.csv")
+
+    # Write the data to the CSV file
+    with open("pomodoro_data.csv", mode="a", newline="") as file:
+        writer = csv.writer(file)
+
+        # Write header row if the file is newly created
+        if not file_exists:
+            writer.writerow(["Date", "Description", "Work", "Break"])
+
+        # Get the current date and time
+        current_datetime = datetime.now()
+
+        writer.writerow([current_datetime, description, work_duration, break_duration])
 
 def create_motivational_window(phrase):
     # Select a random phrase from the list
@@ -93,6 +109,7 @@ def show_finish_window(pomodoros, description, work_duration, break_duration, ph
 
     def quit_program():
         window.destroy()
+        insert_csv(description, work_duration, break_duration)
         pomodoro_timer(pomodoros, description, work_duration, break_duration, phrase_list)
 
 
@@ -137,6 +154,7 @@ def main():
     work_duration = int(input("Enter the work duration (in minutes): "))
     break_duration = int(input("Enter the break duration (in minutes): "))
     description = input("Enter a description: ")
+    insert_csv(description, work_duration, break_duration)
 
     # Example usage with a list of phrases
     phrase_list = [

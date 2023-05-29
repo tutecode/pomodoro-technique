@@ -75,3 +75,6 @@ FADSFDSAFD  | 24    | 43
 
 # COMPUTER VISION QUE CAPTE CUANDO TENES CARA DE ORTO TE AVISE QUE HAY QUE SONREIR
 .....
+
+¿Te falta motivación en el trabajo? Las fotos de gatitos podrían aumentar tu productividad, según estudio
+https://larepublica.pe/ciencia/2023/05/24/sabias-que-ver-fotos-de-gatitos-podrian-aumentar-tu-productividad-en-el-trabajo-segun-estudio-gatitos-tiernos-gatitos-kawaii-gatos-bebes-mascotas-evat-1085424
