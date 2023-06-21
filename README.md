@@ -82,3 +82,5 @@ https://larepublica.pe/ciencia/2023/05/24/sabias-que-ver-fotos-de-gatitos-podria
 
 https://twitter.com/mikkmartin/status/1620821483147890689
 https://www.plasmo.com/
+
+Icon: https://www.flaticon.com/free-icon/cross_8860798?k=1687372288001&log-in=google
