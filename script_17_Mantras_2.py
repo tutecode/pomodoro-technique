@@ -42,102 +42,24 @@ def insert_csv(description, work_duration, break_duration):
         writer.writerow([current_datetime, description, work_duration, break_duration])
 
 
-def create_motivational_window(phrase):
-    # Select a random phrase from the list
-    # phrase = random.choice(phrase)
-
-    # Create the main window
-    window = tk.Tk()
-    window.title("Remember")
-
-    # Determine the width of the phrase
-    # phrase_width = len(phrase) * 5  # Adjust the multiplier as needed for desired window width
-    # phrase_height = len(phrase) // 10  # Adjust the divisor as needed for desired window height
-
-    # phrase_width = len(phrase)  # Adjust the multiplier as needed for desired window width
-    # phrase_height = len(phrase)  # Adjust the divisor as needed for desired window height
-
-    phrase_width = 500
-    phrase_height = 200
-
-    # Set the window size based on the phrase width
-    window.geometry(f"{phrase_width}x{phrase_height*20}")
-    # window.geometry(f"{phrase_width}x{phrase_height}")
-    # window.geometry("500x200")  # Set the window size as desired
-
-    # Create a label to display the phrase
-    # label = tk.Label(window, text=phrase, font=("Arial", 16))
-    label = tk.Label(window, text=phrase, font=("Arial", 16), wraplength=phrase_width)
-
-    label.pack(pady=10000)  # Adjust the padding as needed
-
-    # Calculate random coordinates for the image position
-    # window.update()  # Ensure window dimensions are updated
-    window_width = window.winfo_width()
-    window_height = window.winfo_height()
-    x = random.randint(0, phrase_width - window_width)
-    y = random.randint(0, phrase_height - window_height)
-
-    window.geometry(f"{window_width}x{window_height}+{x}+{y}")
-
-    # Make the window stay on top
-    window.attributes("-topmost", True)
-
-    # Start the main event loop
-    window.after(10000, window.destroy)  # Close the window after 3 seconds
-    window.mainloop()
-
-
-def create_motivational_window_2(phrase):
-    # Create the main window
-    window = tk.Tk()
-    window.title("Remember")
-
-    # Determine the width and height of the phrase
-    phrase_width = (
-        len(phrase) * 15
-    )  # Adjust the multiplier as needed for desired window width
-    # phrase_height = len(phrase) * 8
-    phrase_height = 105
-
-    # Set the window size based on the phrase dimensions
-    window.geometry(f"{phrase_width}x{phrase_height}")
-
-    # Get the screen width and height
-    screen_width = window.winfo_screenwidth()
-    screen_height = window.winfo_screenheight()
-
-    # Calculate random coordinates for the window position
-    x = random.randint(0, screen_width - phrase_width)
-    y = random.randint(0, screen_height - phrase_height)
-
-    # Position the window at the random coordinates
-    window.geometry(f"+{x}+{y}")
-
-    # Create a label to display the phrase
-    label = tk.Label(window, text=phrase, font=("Arial", 24), wraplength=phrase_width)
-    label.pack(pady=20)  # Adjust the padding as needed
-
-    # Make the window stay on top
-    window.attributes("-topmost", True)
-
-    # Start the main event loop
-    window.after(3000, window.destroy)  # Close the window after 3 seconds
-    window.mainloop()
-
-
 def quitter():
     window = tk.Tk()
     window.quit()
 
+
 def on_exit_enter(event):
-    event.widget.config(bg="#002749", fg="#002749")  # Change background and foreground colors on hover
+    event.widget.config(
+        bg="#002749", fg="#002749"
+    )  # Change background and foreground colors on hover
+
 
 def on_exit_leave(event):
-    event.widget.config(bg="#003049", fg="#FFFFFF")  # Restore background and foreground colors on leave
+    event.widget.config(
+        bg="#003049", fg="#FFFFFF"
+    )  # Restore background and foreground colors on leave
 
 
-def create_motivational_window_3(phrase):
+def create_motivational_window(phrase):
     # Create the main window
     window = tk.Tk()
     window.title("Remember")
@@ -149,12 +71,7 @@ def create_motivational_window_3(phrase):
     header_bg = "#003049"  # Background color
     header_fg = "#FFFFFF"  # Text color
     header_font = tkfont.Font(
-        family="Times", 
-        size=10,
-        weight='bold',
-        slant='roman',
-        underline=0,
-        overstrike=0
+        family="Times", size=10, weight="bold", slant="roman", underline=0, overstrike=0
     )
 
     # Create a header frame
@@ -184,8 +101,8 @@ def create_motivational_window_3(phrase):
     exit_label.bind("<Button-1>", lambda e: quitter())
 
     # Bind hover events to the exit label
-    exit_label.bind('<Enter>', on_exit_enter)
-    exit_label.bind('<Leave>', on_exit_leave)
+    exit_label.bind("<Enter>", on_exit_enter)
+    exit_label.bind("<Leave>", on_exit_leave)
 
     #################
 
@@ -211,12 +128,12 @@ def create_motivational_window_3(phrase):
 
     # Create a font object for the phrase label
     phrase_font = tkfont.Font(
-        family="Perpetua", 
+        family="Perpetua",
         size=13,
-        weight='bold',
-        slant='italic',
+        weight="bold",
+        slant="italic",
         underline=0,
-        overstrike=0
+        overstrike=0,
     )
 
     # Create a label to display the phrase with the configured font
@@ -227,7 +144,7 @@ def create_motivational_window_3(phrase):
     window.attributes("-topmost", True)
 
     # Start the main event loop
-    window.after(10000, window.destroy)  # Close the window after 3 seconds
+    window.after(4000, window.destroy)  # Close the window after 4 seconds
     window.mainloop()
 
 
@@ -261,71 +178,6 @@ def show_final_image(image_path):
 
     # Start the main event loop
     window.after(6000, window.destroy)  # Close the window after 3 seconds
-    window.mainloop()
-
-
-def create_motivational_window_4(phrase):
-    # Create the main window
-    window = RoundedCornersWindow()  # for Windows
-    # window = window.Window()  # for Mac
-    window.title("Remember")
-
-    # Remove title bar
-    window.overrideredirect(True)
-
-    # Configure header colors and font
-    header_bg = "#003049"  # Background color
-    header_fg = "#FFFFFF"  # Text color
-    header_font = ("Arial", 13, "bold")
-
-    # Create a header frame
-    header_frame = tk.Frame(window, bg=header_bg)
-    header_frame.pack(fill="x")
-
-    # Create a label for the header text
-    header_label = tk.Label(
-        header_frame, text="Remember", font=header_font, fg=header_fg, bg=header_bg
-    )
-    header_label.pack(side="left", pady=5)
-
-    # Create a close button on titlebar
-    close_label = tk.Label(
-        header_frame, text="  X  ", bg=header_bg, fg="white", relief="raised", bd=1
-    )
-    close_label.pack(side="right", pady=5, ipadx=1)
-    close_label.bind("<Button-1>", quitter)
-
-    # Determine the width and height of the phrase
-    phrase_width = (
-        len(phrase) * 15
-    )  # Adjust the multiplier as needed for desired window width
-    phrase_height = 150  # Adjust the height as desired
-
-    # Set the window size based on the phrase dimensions
-    window.geometry(f"{phrase_width}x{phrase_height}")
-
-    # Get the screen width and height
-    screen_width = window.winfo_screenwidth()
-    screen_height = window.winfo_screenheight()
-
-    # Calculate random coordinates for the window position
-    x = random.randint(0, screen_width - phrase_width)
-    y = random.randint(0, screen_height - phrase_height)
-
-    # Position the window at the random coordinates
-    window.geometry(f"+{x}+{y}")
-
-    # Create a label to display the phrase
-    label = tk.Label(
-        window, text=phrase, font=("Perpetua", 24), wraplength=phrase_width
-    )
-    label.pack(pady=20)  # Adjust the padding as needed
-
-    # Make the window stay on top
-    window.attributes("-topmost", True)
-
-    # Start the main event loop
-    window.after(5000, window.destroy)  # Close the window after 3 seconds
     window.mainloop()
 
 
@@ -403,8 +255,8 @@ def main():
         "¡Valórate!",
     ]
 
-    #phrase = random.choice(phrase_list)
-    #create_motivational_window_3(phrase)
+    # phrase = random.choice(phrase_list)
+    # create_motivational_window_3(phrase)
 
     pomodoro_timer(pomodoros, description, work_duration, break_duration, phrase_list)
 
