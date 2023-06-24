@@ -14,52 +14,14 @@ import tkinter.font as tkfont
 import random
 
 
-def quitter():
-    window = tk.Tk()
-    window.quit()
-
-
-def initialize_pygame():
-    pygame.display.init()
-    pygame.mixer.init()
-
-
 def play_sound(file_path, duration):
+    pygame.mixer.init()
     pygame.mixer.music.load(file_path)
     pygame.mixer.music.play()
     pygame.mixer.music.set_endevent(pygame.USEREVENT + 1)
 
     # Schedule a stop event after the specified duration
-    pygame.time.set_timer(pygame.USEREVENT + 1, int(duration * 1000))
-
-
-def stop_sound():
-    pygame.mixer.music.stop()
-
-
-def create_mute_window(file_path, duration):
-    window = tk.Tk()
-    window.title("Music Player")
-
-    def mute_music():
-        stop_sound()
-        window.destroy()
-
-    mute_button = tk.Button(window, text="Mute", command=mute_music)
-    mute_button.pack(pady=20)
-
-    initialize_pygame()
-    window.after(1000, lambda: play_sound(file_path, duration))
-
-    def check_music_status():
-        if not pygame.mixer.music.get_busy():
-            window.destroy()
-        else:
-            window.after(1000, check_music_status)
-
-    window.after(1000, check_music_status)
-
-    window.mainloop()
+    threading.Timer(duration * 60, pygame.mixer.music.stop).start()
 
 
 def insert_csv(description, work_duration, break_duration):
@@ -78,6 +40,11 @@ def insert_csv(description, work_duration, break_duration):
         current_datetime = datetime.now()
 
         writer.writerow([current_datetime, description, work_duration, break_duration])
+
+
+def quitter():
+    window = tk.Tk()
+    window.quit()
 
 
 def on_exit_enter(event):
@@ -217,35 +184,11 @@ def show_final_image(image_path):
 def show_finish_window(
     pomodoros, description, work_duration, break_duration, phrase_list
 ):
-    # Create the main window
     window = tk.Tk()
-    window.title("Pomodoro Finish")
-    window.overrideredirect("True")  # Remove title bar
-    window.attributes("-topmost", True)  # Make the window stay on top
+    window.title("Pomodoro Finished")
 
-    # Configure header colors and font
-    header_bg = "#003049"  # Background color
-    header_fg = "#FFFFFF"  # Text color
-    header_font = tkfont.Font(
-        family="Times", size=10, weight="bold", slant="roman", underline=0, overstrike=0
-    )
-
-    # Create a header frame
-    header_frame = tk.Frame(window, bg=header_bg)
-    header_frame.pack(fill="x")
-
-    # Create a label for the header text
-    header_label = tk.Label(
-        header_frame,
-        text="Did you finish your job?",
-        font=header_font,
-        fg=header_fg,
-        bg=header_bg,
-    )
-    header_label.pack(side="left", pady=5, padx=10)
-
-    # label = tk.Label(window, text="Did you finish your job? (yes/no)")
-    # label.pack(pady=50)
+    label = tk.Label(window, text="Did you finish your job? (yes/no)")
+    label.pack(pady=50)
 
     def start_pomodoro():
         window.destroy()
@@ -259,10 +202,10 @@ def show_finish_window(
         )
 
     yes_button = tk.Button(window, text="Yes", command=start_pomodoro)
-    yes_button.pack(side="left", padx=5, pady= 5)
+    yes_button.pack(side="left", padx=10)
 
     no_button = tk.Button(window, text="No", command=quit_program)
-    no_button.pack(side="right", padx=5, pady= 5)
+    no_button.pack(side="right", padx=10)
 
     window.mainloop()
 
@@ -280,7 +223,7 @@ def pomodoro_timer(pomodoros, description, work_duration, break_duration, phrase
             threading.Thread(target=create_motivational_window, args=(phrase,)).start()
 
         print(f"Pomodoro {i+1}: Take a break for {break_duration} minutes")
-        create_mute_window("relax_1.mp3", break_duration)
+        play_sound("relax_1.mp3", break_duration)
         time.sleep(break_duration * 60)
 
     show_finish_window(
@@ -315,7 +258,7 @@ def main():
     # phrase = random.choice(phrase_list)
     # create_motivational_window_3(phrase)
 
-    show_finish_window(pomodoros, description, work_duration, break_duration, phrase_list)
+    pomodoro_timer(pomodoros, description, work_duration, break_duration, phrase_list)
 
 
 if __name__ == "__main__":
