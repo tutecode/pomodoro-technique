@@ -308,15 +308,18 @@ def main():
         "Haz ejercicio cabrón!",
         "Touch some grass",
         "Llama a tus seres queridos",
-        "¡Valórate!",
+        "Qué la comida sea tu medicina y la medicina sea tu comida - Hipócrates",
+        "Es importante entender que uno se mete las cosas por la boca pero no entran"
+        "Be grateful: thanks, thanks, thanks"
         "¡Valórate!",
     ]
 
     # phrase = random.choice(phrase_list)
     # create_motivational_window_3(phrase)
 
-    show_finish_window(pomodoros, description, work_duration, break_duration, phrase_list)
-
+    #create_motivational_window(pomodoros, description, work_duration, break_duration, phrase_list)
+    #create_motivational_window(phrase_list)
+    pomodoro_timer(pomodoros, description, work_duration, break_duration, phrase_list)
 
 if __name__ == "__main__":
     main()

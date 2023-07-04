@@ -160,6 +160,7 @@ def show_final_image(image_path):
     # Get the screen width and height
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
+    
     # Calculate random coordinates for the image position
     x = random.randint(0, screen_width - image.width)
     y = random.randint(0, screen_height - image.height)
@@ -252,7 +253,8 @@ def main():
         "Touch some grass",
         "Llama a tus seres queridos",
         "¡Valórate!",
-        "¡Valórate!",
+        "Smile! :)",
+        "La perdida de tiempo es una ilusion de la mente",
     ]
 
     # phrase = random.choice(phrase_list)
